@@ -1,8 +1,8 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  BrowserRouter as Router
 } from "react-router-dom";
 
 import Header from './Components/Header';
@@ -34,19 +34,19 @@ class App extends React.Component {
 
   render () {
     return (
-      <Router>
+      <Router basename={"/"}>
         <Header currentPath={this.state.route} />
         <Switch>
-          <Route path="/about">
+          <Route path={process.env.PUBLIC_URL + "/about"}>
             <AboutPage handleChangeURL={(path) => this.onChangeURL(path)} />
           </Route>
-          <Route path="/services">
+          <Route path={process.env.PUBLIC_URL + "/services"}>
             <ServicesPage handleChangeURL={(path) => this.onChangeURL(path)} />
           </Route>
-          <Route path="/contact">
+          <Route path={process.env.PUBLIC_URL + "/contact"}>
             <ContactPage handleChangeURL={(path) => this.onChangeURL(path)} />
           </Route>
-          <Route path="/">
+          <Route path={process.env.PUBLIC_URL + "/"}>
             <Home />
           </Route>
         </Switch>
