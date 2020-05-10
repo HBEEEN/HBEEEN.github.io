@@ -34,19 +34,19 @@ class App extends React.Component {
 
   render () {
     return (
-      <Router basename={"/"}>
+      <Router>
         <Header currentPath={this.state.route} />
         <Switch>
-          <Route path={process.env.PUBLIC_URL + "/about"}>
+          <Route path="/About">
             <AboutPage handleChangeURL={(path) => this.onChangeURL(path)} />
           </Route>
-          <Route path={process.env.PUBLIC_URL + "/services"}>
+          <Route path="/Services">
             <ServicesPage handleChangeURL={(path) => this.onChangeURL(path)} />
           </Route>
-          <Route path={process.env.PUBLIC_URL + "/contact"}>
+          <Route path="/Contact">
             <ContactPage handleChangeURL={(path) => this.onChangeURL(path)} />
           </Route>
-          <Route path={process.env.PUBLIC_URL + "/"}>
+          <Route path="/">
             <Home />
           </Route>
         </Switch>
